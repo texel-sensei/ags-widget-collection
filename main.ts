@@ -1,3 +1,5 @@
+const css = `${Utils.CACHE_DIR}/style.css`;
+
 const time = Variable('', {
     poll: [1000, function() {
         return Date().toString();
@@ -22,5 +24,6 @@ const Bar = (monitor: number) => Widget.Window({
 });
 
 App.config({
+    style:css,
     windows: [Bar(0)],
 });
