@@ -1,9 +1,11 @@
+import Gio from "gi://Gio";
+
 export { };
 
 const main = '/tmp/ags/main.js';
 
 // main scss file
-const scss = `${App.configDir}/style.scss`
+const scss = `${App.configDir}/style/style.scss`
 
 // target css file
 const css = `${Utils.CACHE_DIR}/style.css`;
@@ -21,6 +23,10 @@ Utils.monitorFile(
         App.resetCss()
         App.applyCss(css)
     },
+	{
+		flags: Gio.FileMonitorFlags.NONE,
+		recursive: true
+	}
 )
 
 try {
