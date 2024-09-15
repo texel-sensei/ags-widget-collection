@@ -1,0 +1,5 @@
+.*
+!.gitignore
+
+# Symlink to type definitions
+types
