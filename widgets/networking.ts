@@ -20,6 +20,7 @@ const WifiRevealer = Widget.Revealer({
 })
 
 export const WifiMenu = () => Widget.Window({
+    name: 'WifiMenu',
     keymode: 'on-demand',
     anchor: ['top'],
     child: Widget.Box({
@@ -39,10 +40,6 @@ const WifiIndicator = () => Widget.Box({
                 children: [
                     Widget.Icon({
                         icon: network.wifi.bind('icon_name'),
-                    }),
-                    Widget.Label({
-                        label: network.wifi.bind('ssid')
-                            .as(ssid => ssid || 'Unknown'),
                     }),
                 ]
             }),

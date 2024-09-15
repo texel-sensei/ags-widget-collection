@@ -25,7 +25,6 @@ const Bar = (monitor: number) => Widget.Window({
             children: [
                 HelloButton("Hello World!"),
                 NetworkIndicator(),
-                WifiMenu(),
                 WorkspaceList(monitor),
                 ],
         }),
@@ -38,5 +37,5 @@ const Bar = (monitor: number) => Widget.Window({
 
 App.config({
     style:css,
-    windows: [Bar(0)],
+    windows: [Bar(0), WifiMenu(),],
 });
