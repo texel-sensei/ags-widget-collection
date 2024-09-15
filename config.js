@@ -2,7 +2,7 @@ import Gio from "gi://Gio";
 
 export { };
 
-const main = '/tmp/ags/main.js';
+const main = `${Utils.CACHE_DIR}/main.js`;
 
 // main scss file
 const scss = `${App.configDir}/style/style.scss`
