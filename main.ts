@@ -1,4 +1,5 @@
 import { HelloButton } from "widgets/helloButton";
+import { NetworkIndicator } from "widgets/networking";
 
 const css = `${Utils.CACHE_DIR}/style.css`;
 
@@ -18,7 +19,13 @@ const Bar = (monitor: number) => Widget.Window({
             hpack: 'center',
             label: 'Welcome to AGS!',
         }),
-		center_widget: HelloButton("Hello World!"),
+		center_widget: Widget.Box({
+            spacing: 8,
+            children: [
+                HelloButton("Hello World!"),
+                NetworkIndicator(),
+                ],
+        }),
         end_widget: Widget.Label({
             hpack: 'center',
             label: time.bind(),
