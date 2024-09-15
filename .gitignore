@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.editorconfig
 
 # Symlink to type definitions
 types
