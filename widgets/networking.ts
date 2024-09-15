@@ -1,4 +1,36 @@
+import { Wifi } from "types/service/network";
+
 const network = await Service.import('network')
+
+const WifiRevealer = Widget.Revealer({
+    revealChild: false,
+    transitionDuration: 500,
+    transition: 'slide_down',
+    child: Widget.Box({
+        children: [
+            Widget.Icon({
+            icon: network.wifi.bind('icon_name'),
+            }),
+            Widget.Label({
+                label: network.wifi.bind('ssid')
+                    .as(ssid => ssid || 'Unknown'),
+            }),
+        ],
+    }),
+})
+
+export const WifiMenu = () => Widget.Window({
+    keymode: 'on-demand',
+    anchor: ['top'],
+    child: Widget.Box({
+        vertical: true,
+        css: 'padding: 1px;',
+        children: [
+            WifiRevealer,
+        ],
+    }),
+})
+
 
 const WifiIndicator = () => Widget.Box({
     children: [
@@ -14,15 +46,7 @@ const WifiIndicator = () => Widget.Box({
                     }),
                 ]
             }),
-            onClicked: (btn) => {
-                btn.get_parent().children[1].reveal_child =
-                !btn.get_parent().children[1].reveal_child;},
-        }),
-        Widget.Revealer({
-            revealChild: false,
-            transitionDuration: 1000,
-            transition: 'slide_right',
-            child: Widget.Label('hello!'),
+            onClicked: () => toggleWifiMenu(),
         }),
     ],
 })
@@ -38,3 +62,7 @@ export const NetworkIndicator = () => Widget.Stack({
     },
     shown: network.bind('primary').as(p => p || 'wifi'),
 })
+
+function toggleWifiMenu() {
+    WifiRevealer.reveal_child = !WifiRevealer.reveal_child;
+}

@@ -1,5 +1,5 @@
 import { HelloButton } from "widgets/helloButton";
-import { NetworkIndicator } from "widgets/networking";
+import { NetworkIndicator, WifiMenu } from "widgets/networking";
 import { WorkspaceList } from "widgets/hyprland/workspaceList";
 
 const css = `${Utils.CACHE_DIR}/style.css`;
@@ -25,6 +25,7 @@ const Bar = (monitor: number) => Widget.Window({
             children: [
                 HelloButton("Hello World!"),
                 NetworkIndicator(),
+                WifiMenu(),
                 WorkspaceList(monitor),
                 ],
         }),
