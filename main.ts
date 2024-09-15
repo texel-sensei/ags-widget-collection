@@ -1,3 +1,5 @@
+import { HelloButton } from "widgets/helloButton";
+
 const css = `${Utils.CACHE_DIR}/style.css`;
 
 const time = Variable('', {
@@ -16,6 +18,7 @@ const Bar = (monitor: number) => Widget.Window({
             hpack: 'center',
             label: 'Welcome to AGS!',
         }),
+		center_widget: HelloButton("Hello World!"),
         end_widget: Widget.Label({
             hpack: 'center',
             label: time.bind(),
